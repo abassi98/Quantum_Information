@@ -1,0 +1,31 @@
+
+FC = gfortran
+FCLAGS = -g -O3 -fbounds-check #-ffpe-trap=zero,overflow,underflow 
+FFLAGS = -llapack
+
+SOURCE1 = code/modules.f95 code/module_debugging.f95 code/debugging.f95  
+
+SOURCE2 = code/modules.f95 code/module_debugging.f95 code/RSRG.f95
+
+SOURCE3 = code/modules.f95 code/module_debugging.f95 code/IDMRG.f95
+
+
+
+all: debugging RSRG IDMRG
+
+
+
+debugging: $(SOURCE1)
+	$(FC) $(FCLAGS) -o $@ $(SOURCE1) $(FFLAGS)
+
+RSRG: $(SOURCE2)
+	$(FC) $(FCLAGS) -o $@ $(SOURCE2) $(FFLAGS) 
+
+IDMRG :  $(SOURCE3)
+	$(FC) $(FCLAGS) -o $@ $(SOURCE3) $(FFLAGS)
+
+
+
+clean:
+	-rm -f *.mod *.txt debugging RSRG IDMRG
+
