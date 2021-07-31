@@ -1,0 +1,20 @@
+2) We modify the program add_numbers to sum two numbers given as the input in the terminal. At first with INTEGER*2 and INTEGER*4 and then with SINGLE and DOUBLE PRECISION
+
+2.a) For the type INTEGER*2 we have a runtime error: Integer overflow  while reading item1. For the type INTEGER*4 the output is correctly computed: 2000001.
+2.b)We sum  the two numebers in single and double precision. We notice that the result is more accurate in double precision.
+
+3)
+We always read/write matrices column by column. We 
+In the first loop we implement the standard loop for matrix-matrix multiplication.
+Then we transpose the first matrix A and we compute the matrix-matrix multiplication column by column. We note that nearly a half of the computation time with respect to the first loop is needed. The time needed for the transposition is negligible.
+Then, we write the the built-in fucntion. We observe that the computation time in this case in nearly one hundred of time needed for our algorithm.
+Laslty, we try different optimization flags and notice an improvment on the computation time for each loop.
+For instance, for a multiplication of two 2000x2000 matrices of a given shape, we obtain:
+No flags: First loop=71.81 s, Second loop=34.95 s, Built-in = 0.38 s
+-O:First loop=30.53 s, Second loop=9.94 s, Built-in = 0.39 s
+-O1:First loop=30.91 s, Second loop=10.29 s, Built-in = 0.39 s
+-O2:First loop=30.38 s, Second loop=10.03 s, Built-in = 0.41 s
+-O3:First loop=29.91 s, Second loop=9.67 s, Built-in = 0.39 s
+
+To conclude, we notice an halving of the computaation time with the second loop with respect to the first and an halving of the computation time for each loop if we use any optimization flag.
+The built-in function MATMUL runs nearly one hundred times faster.
