@@ -1,0 +1,84 @@
+
+DEBUGGING MODULE
+
+This file contains a first docuementation for the debugging module
+
+     init_debug(debug)
+     
+       Type: subroutine
+       Parameters:
+        debug: logical
+         Debugging variable.
+       Description:
+        Initializes the debugging variable.
+        
+     check_dimensions(nn,mm,myname,debug)
+
+       Type: subroutine
+       Parameters:
+        nn,mm: integer
+         Dimensions of the matrices.
+        myname: character*10
+         Name of the matrix
+        debug: logical
+         Debugging variable.
+       Description:
+        Checks if the dimensions are positive if debug=true.
+        
+     match_dimensions(mm_1,nn_2,debug)
+     
+       Type: subroutine
+       Parameters:
+        mm_1,nn_2: integer
+         Dimensions of the matrices.
+        debug: logical
+         Debugging variable
+        Description:
+         Checks if the dimensions match for multiplication if debug=true.
+      
+     check_allocation(myname,stat,debug)
+     
+       Type: subroutine
+       Parameters:
+        myname: chracter*10
+         Name of thematrix
+        stat: integer
+         Status of the allocation. 0 if succeeds.
+        debug: logical
+         Debugging variable
+       Description:
+        Checks if the allocation succeeds.
+        
+     check_diff(A,B,nn,mm,nameA,nameB,threshold,debug)
+     
+       Type:subroutine
+       Parameters:
+        nn,mm: integer
+         Dimensions of the matrices.
+        A,B: real, dimension(nn,mm)
+         Matrices.
+        nameA,nameB: character*10
+         Names of matrices.
+        threshold: real
+        debug: logical
+         Debugging variable.
+       Description:
+        Check if the element by element difference between two matrices if less than a threshold, if debug=true.
+        
+     check_time(start,threshold,debug)
+     
+       Type=subroutine
+       Parameters:
+        start: real
+         Starting time
+        thrshold: real
+         threshold
+        debug: logical
+         debugging variable.
+       Description:
+        Check the computation time
+     
+     
+     
+     
+     
